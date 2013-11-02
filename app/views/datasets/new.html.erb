@@ -1,5 +1,20 @@
 <h1>New dataset</h1>
 
-<%= render 'form' %>
-
+<%= simple_form_for @dataset do |f| %>
+  <table>
+    <tr>
+      <td>
+        檔案
+      </td>
+      <td>
+        網址 <%= f.text_field :source %>
+      </td>
+    </tr>
+  </table>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <div class="form-actions">
+    <input type="submit" value="建立">
+  </div>
+<% end %>
 <%= link_to 'Back', datasets_path %>

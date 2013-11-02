@@ -37,13 +37,22 @@
         <li>
           <a href="<%= datasets_path %>">List</a>
         </li>
-          <% if user_signed_in? %>
-            Hi <%= current_user.name %>
-            <li><%= link_to '登出', destroy_user_session_path %></li>
-          <% else %>
-            <li><%= link_to '登入', new_user_session_path %></li>
-            <li><%= link_to '註冊', new_user_registration_path %></li>
-          <% end %>
+
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              <img src="<%= current_user.avatar(50) %>" width="20" height="20" />
+              <%= current_user.name %>
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to '登出', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to '登入', new_user_session_path %></li>
+          <li><%= link_to '註冊', new_user_registration_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
