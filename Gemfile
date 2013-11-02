@@ -50,3 +50,5 @@ end
 # Use twitter bootstrap
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
+
+gem 'json'
