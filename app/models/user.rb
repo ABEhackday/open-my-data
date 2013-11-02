@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def avatar(size)
+  def avatar(size=nil)
     hash = Digest::MD5.hexdigest(self.email.downcase)
-    "http://www.gravatar.com/avatar/#{hash}?s=#{size}"
+    "http://www.gravatar.com/avatar/#{hash}" + ("?s=#{size}" if size)
   end
 end
