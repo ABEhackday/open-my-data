@@ -2,8 +2,7 @@ require 'csv'
 require 'json'
 
 def read_csv(content)
-    # Dirty hack: all the TPE open data CSV encoded in Big5 instead of UTF-8
-    content = content.encode "utf-8", "big5"
+    content.force_encoding 'utf-8'
     list = CSV.parse content
     fields = list[0]
     result = []

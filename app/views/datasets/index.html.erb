@@ -1,6 +1,6 @@
 <div class="container">
     <% @datasets.each do |dataset| %>
-      <div class="dataset">
+      <div class="dataset" data-id="<%= dataset.id %>">
         <div class="row">
             <div class="col-md-8">
                 <h2><%= dataset.name %> <small><%= dataset.created_at %></small></h2>
@@ -10,6 +10,18 @@
                 <div class="owner"><%= image_tag dataset.owner.avatar %> <%= dataset.owner.name %></div>
             </div>
         </div>
+        <div class="more"></div>
       </div>
     <% end %>
 </div>
+<script id="t-datasets-more" type="x-handlebars-template">
+    <hr>
+    <p>數量: {{ row_count }} 筆</p>
+    <table class="table">
+        <tr>{{#each first_row}}<th>{{@key}}</th>{{/each}}</tr>
+        <tr>{{#each first_row}}<td>{{this}}</td>{{/each}}</tr>
+    </table>
+    <div class="row" style="margin: 0;">
+        <a class="pull-right btn btn-danger" href="/datasets/{{ id }}">More</a>
+    <div>
+</script>
