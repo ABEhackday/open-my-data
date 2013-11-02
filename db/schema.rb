@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131102063942) do
+ActiveRecord::Schema.define(version: 20131102065802) do
 
   create_table "dataset_data", force: true do |t|
     t.integer  "dataset_field_id_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20131102063942) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "dataset_id"
+    t.string   "name"
   end
 
   add_index "dataset_fields", ["dataset_id"], name: "index_dataset_fields_on_dataset_id"
