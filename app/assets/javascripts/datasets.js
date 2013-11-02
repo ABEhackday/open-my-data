@@ -20,9 +20,9 @@ $(function () {
 		left: "100%"
 	    }, 450);
 	});
-    }else if($('body').hasClass('show')){
+    }else if($('body').hasClass('show-action')){
 	$('table.dataset-preview').dataTable({ bJQueryUI: true });
-    }else if($('body').hasClass('index')){
+    }else if($('body').hasClass('index-action')){
     
     }
 });
