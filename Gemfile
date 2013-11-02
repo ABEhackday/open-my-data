@@ -54,3 +54,4 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 
 gem 'json'
+gem 'kaminari'

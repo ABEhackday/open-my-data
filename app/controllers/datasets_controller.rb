@@ -5,7 +5,7 @@ class DatasetsController < ApplicationController
   # GET /datasets
   # GET /datasets.json
   def index
-    @datasets = Dataset.all
+    @datasets = Dataset.page(params[:page])
   end
 
   # GET /datasets/1
