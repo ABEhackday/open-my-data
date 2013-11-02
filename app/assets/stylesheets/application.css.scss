@@ -54,3 +54,12 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: auto;
     margin-right: auto;   
 }
+.fix-wrapper {
+    position: fixed;
+    width: 100%;
+    .wrapper {
+        width: 100%;
+        position: absolute;
+        display: inline-block;
+    }
+}
