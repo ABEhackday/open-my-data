@@ -21,7 +21,7 @@ IndexAutoLoader = {
 		if(page_items.length == 0){
 		    IndexAutoLoader.no_data = true;
 		}else{
-		    $('#main .container').append(page_items);
+		    $('#datasets-container').append(page_items);
 		    IndexAutoLoader.loading = false;
 		    IndexAutoLoader.loading_indecator.hide();
 		}

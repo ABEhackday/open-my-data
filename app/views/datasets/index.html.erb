@@ -1,11 +1,9 @@
-<div class="container">
+<div class="container" id="datasets-container">
   <% if !params[:s].blank? %>
     <h2>正在搜尋: <%= params[:s] %></h2>
   <% else %>
     <h2><strong>Latest open data</strong></h2>
   <% end %>
-</div>
-<div class="container">
     <% @datasets.each do |dataset| %>
       <div class="dataset" data-id="<%= dataset.id %>">
         <div class="row">
