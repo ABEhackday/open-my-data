@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require dataTables/jquery.dataTables
+//= require jquery.ba-bbq.js
 //= require_tree .
