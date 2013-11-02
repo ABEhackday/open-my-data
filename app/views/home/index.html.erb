@@ -1,36 +1,52 @@
 <div class="wrapper">
-    <section>
+    <section class="full">
         <h1>Introducing OpenMyData</h1>
-        <h4>Slogan</h4>
-        <a class="btn btn-success btn-lg" href="<%= new_dataset_path %>">Import</a>
-        <a class="btn btn-info btn-lg" href="<%= new_dataset_path %>">Use</a>
+        <h4>
+            <p>台北市優質餐廳列表、Tech conference in Taiwan</p>
+            <p>在這個資訊的時代，擁有資訊就擁有一切 </p>
+            <p>只要兩個步驟，分享手中的資訊，讓世界更美好 :)</p>
+        </h4>
+        <a class="btn btn-info btn-lg" href="#use">我要使用</a>
+        <a class="btn btn-success btn-lg" href="#share">我要分享</a>
     </section>
 </div>
-<div class="wrapper bg-yellow">
-    <section>
+<div class="wrapper bg-blue">
+    <a id="use"></a>
+    <section class="full">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h1>Opendatas</h1>
-                    <h4>Description</h4>
+                <div class="col-md-8">
+                    <h1>Open data</h1>
+                    <h4>
+                        <p>目前我們有 {num} 筆公開資料</p>
+                        <p>內容包羅萬象, 舉凡美食列表, 優良店家, 公車到站時刻等等</p>
+                        <p>只有你不會寫, 沒有你找不到的資料！</p>
+                    </h4>
+                    <a class="btn btn-default btn-lg" href="<%= datasets_path %>">Explore</a>
                 </div>
-                <div class="col-md-6">
-                    <a class="btn btn-info btn-lg" href="<%= new_dataset_path %>">Use</a>
+                <div class="col-md-4">
+                    placeholder for image
                 </div>
             </div>
         </div>
     </section>
 </div>
-<div class="wrapper bg-red">
-    <section>
+<div class="wrapper bg-green">
+    <a id="share"></a>
+    <section class="full">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <a class="btn btn-info btn-lg" href="<%= new_dataset_path %>">Use</a>
+                <div class="col-md-4">
+                    placeholder for image
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <h1>Open my Data</h1>
-                    <h4>Description</h4>
+                    <h4>
+                        <p>我們支援各式各樣的資料格式(json, csv), 你甚至可以提供 API 網址</p>
+                        <p>你提供的資料可以讓全世界最厲害的開發者自由使用</p>
+                        <p>我們一起藉由開放資料, 讓世界變得更好 :)</p>
+                    </h4>
+                    <a class="btn btn-default btn-lg" href="<%= new_dataset_path %>">Use</a>
                 </div>
             </div>
         </div>

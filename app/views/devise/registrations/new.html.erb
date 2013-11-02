@@ -1,21 +1,26 @@
-<h2>Sign up</h2>
+<div class="wrapper">
+    <section class="full bg-green">
+        <div class="col-sm-3 center" style="float: none;">
+            <h1>Sign up</h1>
+            <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html:{ class: 'form-horizontal'}) do |f| %>
+              <%= devise_error_messages! %>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+              <div class="form-group">
+              <%= f.text_field :name, :autofocus => true, class: 'form-control', placeholder: 'Name' %></div>
 
-  <div><%= f.label :name %><br />
-    <%= f.text_field  :name %></div>
+              <div class="form-group">
+              <%= f.email_field :email, :autofocus => true, class: 'form-control', placeholder: 'Email' %></div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+              <div class="form-group">
+              <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+              <div class="form-group">
+              <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Password Confirm' %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+              <div class="form-group">
+                <%= f.submit class: "btn btn-success", value:"Sign up" %>
+              </div>
+            <% end %>
+        </div>
+    </section>
+</div>

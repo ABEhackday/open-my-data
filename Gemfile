@@ -47,12 +47,12 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'simple_form'
+gem 'simple_form', github: 'plataformatec/simple_form'
 
 # Use twitter bootstrap
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 
 gem 'json'
-
 gem 'pry'
+gem 'kaminari'

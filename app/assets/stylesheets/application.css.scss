@@ -13,4 +13,44 @@
  */
 @import "twitter/bootstrap";
 
-#main { padding: 30px 0; }
+#main { padding: 60px 0; }
+.wrapper {
+    margin:0;
+    padding:0;
+    h4 {
+        color: #999;
+    }
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Open Sans";
+    font-weight: 300;
+    color: #444444;
+    text-rendering: optimizeLegibility;
+    padding-top: 0.273em;
+    line-height: 1.15538em;
+    padding-bottom: 0.273em;
+}
+.bg-blue {
+    background: #4682b4;
+    color: white;
+    h1 {
+        color: white;
+    }
+    h4 {
+        color: white;
+    }
+}
+.bg-green {
+    background: #3cb371;
+    color: white;
+    h1 {
+        color: white;
+    }
+    h4 {
+        color: white;
+    }
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;   
+}
