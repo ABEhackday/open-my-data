@@ -1,4 +1,5 @@
 <div class="container">
+    <h2><strong>Latest open data</strong></h2>
     <% @datasets.each do |dataset| %>
       <div class="dataset" data-id="<%= dataset.id %>">
         <div class="row">
@@ -16,11 +17,12 @@
 </div>
 <script id="t-datasets-more" type="x-handlebars-template">
     <hr>
-    <p>數量: {{ row_count }} 筆</p>
+    <h3>Sample data</h3>
     <table class="table">
         <tr>{{#each first_row}}<th>{{@key}}</th>{{/each}}</tr>
         <tr>{{#each first_row}}<td>{{this}}</td>{{/each}}</tr>
     </table>
+    <p>數量: {{ row_count }} 筆</p>
     <div class="row" style="margin: 0;">
         <a class="pull-right btn btn-danger" href="/datasets/{{ id }}">More</a>
     <div>

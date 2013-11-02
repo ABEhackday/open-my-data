@@ -13,7 +13,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= body_helper_classes %>">
+<body class="<%= params[:controller]%>-controller <%= params[:action] %>-action">
 
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
@@ -34,10 +34,10 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="<%= new_dataset_path %>">Import</a>
+          <a href="<%= new_dataset_path %>">Share</a>
         </li>
         <li>
-          <a href="<%= datasets_path %>">List</a>
+          <a href="<%= datasets_path %>">Explore</a>
         </li>
 
         <% if user_signed_in? %>

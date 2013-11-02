@@ -64,5 +64,8 @@ body.datasets-controller.index-action {
 }
 
 body.datasets-controller.show-action {
-    
+    span.username {
+        font-size: 35px;
+        line-height: 80px;
+    }
 }

@@ -3,13 +3,15 @@
 <div class="row">
     <div class="col-md-8">
         <h1><%= @dataset.name %></h1>
-        <hr>
         <h4><%= @dataset.description %></h4>
+        <h4>API <input type="text" onfocus="this.select()" onmouseover="this.focus();" class="form-control" value="<%= dataset_url %>.json"></h4>
     </div>
     <div class="col-md-4">
-        <%= @dataset.owner.name %>
-    </div>
+        <%= image_tag @dataset.owner.avatar %>
+        <span class="username"><%= @dataset.owner.name %></span>
+    </div>      
 </div>
+<hr>
 
 <table style="width: 100%" class="dataset-preview">
   <thead>
