@@ -41,7 +41,7 @@ IndexAutoLoader = {
 function showing_datasets_index(){
     IndexAutoLoader.init();
     var template = Handlebars.compile($("#t-datasets-more").html());
-    $('.dataset').click(function () {
+    $('#datasets-container').on('click', '.dataset', function(){
 	var id = $(this).attr('data-id'),
 	    more = $(this).find('.more'),
 	    active = $(this).data('active'),
