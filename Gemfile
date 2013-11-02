@@ -57,3 +57,4 @@ gem 'json'
 gem 'pry'
 gem 'kaminari'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+gem "jquery-ui-rails"

@@ -29,6 +29,7 @@ class DatasetsController < ApplicationController
   # POST /datasets.json
   def create
     @dataset = Dataset.new(dataset_params)
+    @dataset.owner = current_user
 
     respond_to do |format|
       if @dataset.save
@@ -69,6 +70,28 @@ class DatasetsController < ApplicationController
       end
     end
 
+  end
+
+  # GET /datasets/:id/json
+  def json
+    set_dataset
+    return render json: @dataset.errors, status: :unprocessable_entity if @dataset == nil 
+    fields = {}
+    @dataset.dataset_fields.each do |f|
+      fields[f.id] = f.name
+    end
+    rows = @dataset.dataset_rows
+    result = []
+    rows.each do |row_rec|
+      row = {}
+      row_data = row_rec.dataset_data
+      row_data.each do |d|
+        field_name = fields[d.dataset_field_id]
+        row[field_name] = d.dataset_field_data
+      end
+      result << row
+    end
+    render json: result
   end
 
   # PATCH/PUT /datasets/1

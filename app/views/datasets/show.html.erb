@@ -35,5 +35,24 @@
   <%= @dataset.owner_id %>
 </p>
 
+<table class="dataset-preview">
+  <thead>
+    <tr>
+      <% @dataset.fields.each do |f| %>
+        <th><%= f.name %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+  <% @dataset.rows.each do |r| %>
+    <tr>
+      <% r.data.joins(:dataset_field).order('dataset_fields.id').each do |datum| %>
+        <td><%= datum.dataset_field_data %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_dataset_path(@dataset) %> |
 <%= link_to 'Back', datasets_path %>
