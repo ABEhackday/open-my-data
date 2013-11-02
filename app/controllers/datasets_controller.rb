@@ -29,6 +29,7 @@ class DatasetsController < ApplicationController
   # POST /datasets.json
   def create
     @dataset = Dataset.new(dataset_params)
+    @dataset.owner = current_user
 
     respond_to do |format|
       if @dataset.save
