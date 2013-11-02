@@ -3,7 +3,6 @@ IndexAutoLoader = {
     loading: false,
     no_data: false,
     page: 1,
-    href: false,
     loading_indecator: $('<div class="loading-indicator">Loading...</div>').appendTo($('body')).hide(),
     init: function(){
 	$(window).scroll(function(e){
@@ -12,7 +11,11 @@ IndexAutoLoader = {
 	    IndexAutoLoader.loading = true;
 	    IndexAutoLoader.loading_indecator.show();
 	    IndexAutoLoader.page ++;
-	    url = $.param.querystring(IndexAutoLoader.href || location.href, {page: IndexAutoLoader.page});
+	    url = $.param.querystring(location.href, {page: IndexAutoLoader.page});
+	    params = $.deparam.querystring();
+	    if(params.s)
+		url += '&s='+params.s;
+
 	    $.get(url, function(data){
 		page_items = $('.dataset', data);
 		if(page_items.length == 0){
