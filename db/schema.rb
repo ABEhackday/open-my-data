@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131102065802) do
+ActiveRecord::Schema.define(version: 20131102070813) do
 
   create_table "dataset_data", force: true do |t|
-    t.integer  "dataset_field_id_id"
-    t.integer  "dataset_row_id_id"
+    t.integer  "dataset_field_id"
+    t.integer  "dataset_row_id"
     t.string   "dataset_field_data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "dataset_data", ["dataset_field_id_id"], name: "index_dataset_data_on_dataset_field_id_id"
-  add_index "dataset_data", ["dataset_row_id_id"], name: "index_dataset_data_on_dataset_row_id_id"
+  add_index "dataset_data", ["dataset_field_id"], name: "index_dataset_data_on_dataset_field_id"
+  add_index "dataset_data", ["dataset_row_id"], name: "index_dataset_data_on_dataset_row_id"
 
   create_table "dataset_fields", force: true do |t|
     t.integer  "datatype"
@@ -44,12 +44,12 @@ ActiveRecord::Schema.define(version: 20131102065802) do
   end
 
   create_table "dataset_rows", force: true do |t|
-    t.integer  "dataset_id_id"
+    t.integer  "dataset_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "dataset_rows", ["dataset_id_id"], name: "index_dataset_rows_on_dataset_id_id"
+  add_index "dataset_rows", ["dataset_id"], name: "index_dataset_rows_on_dataset_id"
 
   create_table "datasets", force: true do |t|
     t.string   "name"

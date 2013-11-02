@@ -1,3 +1,3 @@
 class DatasetField < ActiveRecord::Base
-  belongs_to :dataset_id
+  belongs_to :dataset
 end
