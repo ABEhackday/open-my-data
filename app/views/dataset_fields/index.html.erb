@@ -1,0 +1,31 @@
+<h1>Listing dataset_fields</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dataset</th>
+      <th>Name</th>
+      <th>Datatype</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dataset_fields.each do |dataset_field| %>
+      <tr>
+        <td><%= dataset_field.dataset_id %></td>
+        <td><%= dataset_field.name %></td>
+        <td><%= dataset_field.datatype %></td>
+        <td><%= link_to 'Show', dataset_field %></td>
+        <td><%= link_to 'Edit', edit_dataset_field_path(dataset_field) %></td>
+        <td><%= link_to 'Destroy', dataset_field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dataset field', new_dataset_field_path %>

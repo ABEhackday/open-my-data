@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  placeholder_name: MyString
+  placeholder_type: 1
+  placeholder_coverter: MyString
+  placeholder_valid_values: MyString
+
+two:
+  placeholder_name: MyString
+  placeholder_type: 1
+  placeholder_coverter: MyString
+  placeholder_valid_values: MyString

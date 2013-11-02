@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  dataset_field_id_id: 
+  dataset_row_id_id: 
+  dataset_field_data: MyString
+
+two:
+  dataset_field_id_id: 
+  dataset_row_id_id: 
+  dataset_field_data: MyString

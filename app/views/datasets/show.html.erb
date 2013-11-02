@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dataset.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @dataset.description %>
+</p>
+
+<p>
+  <strong>License:</strong>
+  <%= @dataset.license %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @dataset.source %>
+</p>
+
+<p>
+  <strong>Source type:</strong>
+  <%= @dataset.source_type %>
+</p>
+
+<p>
+  <strong>Sync frequency:</strong>
+  <%= @dataset.sync_frequency %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @dataset.owner_id %>
+</p>
+
+<%= link_to 'Edit', edit_dataset_path(@dataset) %> |
+<%= link_to 'Back', datasets_path %>

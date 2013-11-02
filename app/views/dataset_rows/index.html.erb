@@ -1,0 +1,27 @@
+<h1>Listing dataset_rows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dataset</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dataset_rows.each do |dataset_row| %>
+      <tr>
+        <td><%= dataset_row.dataset_id %></td>
+        <td><%= link_to 'Show', dataset_row %></td>
+        <td><%= link_to 'Edit', edit_dataset_row_path(dataset_row) %></td>
+        <td><%= link_to 'Destroy', dataset_row, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dataset row', new_dataset_row_path %>

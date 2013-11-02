@@ -1,0 +1,33 @@
+<h1>Listing dataset_parameters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Placeholder name</th>
+      <th>Placeholder type</th>
+      <th>Placeholder coverter</th>
+      <th>Placeholder valid values</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dataset_parameters.each do |dataset_parameter| %>
+      <tr>
+        <td><%= dataset_parameter.placeholder_name %></td>
+        <td><%= dataset_parameter.placeholder_type %></td>
+        <td><%= dataset_parameter.placeholder_coverter %></td>
+        <td><%= dataset_parameter.placeholder_valid_values %></td>
+        <td><%= link_to 'Show', dataset_parameter %></td>
+        <td><%= link_to 'Edit', edit_dataset_parameter_path(dataset_parameter) %></td>
+        <td><%= link_to 'Destroy', dataset_parameter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dataset parameter', new_dataset_parameter_path %>

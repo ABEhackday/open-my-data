@@ -1,9 +1,19 @@
 OpenMyData::Application.routes.draw do
+  resources :dataset_data
+
+  resources :dataset_rows
+
+  resources :dataset_fields
+
+  resources :dataset_parameters
+
+  resources :datasets
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'datasets#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

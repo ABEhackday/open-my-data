@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dataset:</strong>
+  <%= @dataset_row.dataset_id %>
+</p>
+
+<%= link_to 'Edit', edit_dataset_row_path(@dataset_row) %> |
+<%= link_to 'Back', dataset_rows_path %>

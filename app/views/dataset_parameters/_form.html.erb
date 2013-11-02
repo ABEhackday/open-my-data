@@ -1,0 +1,33 @@
+<%= form_for(@dataset_parameter) do |f| %>
+  <% if @dataset_parameter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dataset_parameter.errors.count, "error") %> prohibited this dataset_parameter from being saved:</h2>
+
+      <ul>
+      <% @dataset_parameter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :placeholder_name %><br>
+    <%= f.text_field :placeholder_name %>
+  </div>
+  <div class="field">
+    <%= f.label :placeholder_type %><br>
+    <%= f.number_field :placeholder_type %>
+  </div>
+  <div class="field">
+    <%= f.label :placeholder_coverter %><br>
+    <%= f.text_field :placeholder_coverter %>
+  </div>
+  <div class="field">
+    <%= f.label :placeholder_valid_values %><br>
+    <%= f.text_field :placeholder_valid_values %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

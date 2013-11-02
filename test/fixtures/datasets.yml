@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  license: MyString
+  source: MyString
+  source_type: 1
+  sync_frequency: 1
+  owner_id: 1
+
+two:
+  name: MyString
+  description: MyString
+  license: MyString
+  source: MyString
+  source_type: 1
+  sync_frequency: 1
+  owner_id: 1

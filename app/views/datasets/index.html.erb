@@ -1,0 +1,39 @@
+<h1>Listing datasets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>License</th>
+      <th>Source</th>
+      <th>Source type</th>
+      <th>Sync frequency</th>
+      <th>Owner</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @datasets.each do |dataset| %>
+      <tr>
+        <td><%= dataset.name %></td>
+        <td><%= dataset.description %></td>
+        <td><%= dataset.license %></td>
+        <td><%= dataset.source %></td>
+        <td><%= dataset.source_type %></td>
+        <td><%= dataset.sync_frequency %></td>
+        <td><%= dataset.owner_id %></td>
+        <td><%= link_to 'Show', dataset %></td>
+        <td><%= link_to 'Edit', edit_dataset_path(dataset) %></td>
+        <td><%= link_to 'Destroy', dataset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dataset', new_dataset_path %>
