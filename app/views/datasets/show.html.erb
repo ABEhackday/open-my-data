@@ -1,15 +1,19 @@
-<p id="notice"><%= notice %></p>
-
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-1">
+      <h1><a href="<%= datasets_path %>"><span class="glyphicon glyphicon-arrow-left"></span></a></h1>
+      <!--h1><a href="<%= edit_dataset_path(@dataset) %>"><span class="glyphicon glyphicon-pencil"></span></a></h1-->
+    </div>
+    <div class="col-md-7">
         <h1><%= @dataset.name %></h1>
-        <hr>
         <h4><%= @dataset.description %></h4>
+        <h4>API <input type="text" onfocus="this.select()" onmouseover="this.focus();" class="form-control" value="<%= dataset_url %>.json"></h4>
     </div>
     <div class="col-md-4">
-        <%= @dataset.owner.name %>
-    </div>
+        <%= image_tag @dataset.owner.avatar %>
+        <span class="username"><%= @dataset.owner.name %></span>
+    </div>      
 </div>
+<hr>
 
 <table style="width: 100%" class="dataset-preview">
   <thead>
@@ -29,9 +33,6 @@
   <% end %>
   </tbody>
 </table>
-
-<%= link_to 'Edit', edit_dataset_path(@dataset) %> |
-<%= link_to 'Back', datasets_path %>
 
   <div id="disqus_thread"></div>
   <script type="text/javascript">
