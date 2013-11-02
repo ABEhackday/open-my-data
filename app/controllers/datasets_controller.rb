@@ -2,21 +2,45 @@ require 'import_helpers'
 require 'pry'
 
 class DatasetsController < ApplicationController
-  before_action :set_dataset, only: [:show, :edit, :update, :destroy]
+  before_action :set_dataset, only: [:show, :edit, :update, :destroy, :summary]
   before_action :authenticate_user!, only: [:new, :create, :update]
 
   # GET /datasets
   # GET /datasets.json
   def index
     @datasets = Dataset.page(params[:page])
-    if request.xhr?
-      render layout: nil
-    end
+    render layout: nil if request.xhr?
   end
 
   # GET /datasets/1
   # GET /datasets/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json do
+        set_dataset
+        return render json: @dataset.errors, status: :unprocessable_entity if @dataset == nil 
+        fields = {}
+        @dataset.dataset_fields.each do |f|
+          fields[f.id] = f.name
+        end
+        rows = @dataset.dataset_rows
+        result = []
+        rows.each do |row_rec|
+          row = {}
+          row_data = row_rec.dataset_data
+          row_data.each do |d|
+            field_name = fields[d.dataset_field_id]
+            row[field_name] = d.dataset_field_data
+          end
+          result << row
+        end
+        render json: result
+      end
+    end
+  end
+
+  def summary
   end
 
   # GET /datasets/new
@@ -77,24 +101,6 @@ class DatasetsController < ApplicationController
 
   # GET /datasets/:id/json
   def json
-    set_dataset
-    return render json: @dataset.errors, status: :unprocessable_entity if @dataset == nil 
-    fields = {}
-    @dataset.dataset_fields.each do |f|
-      fields[f.id] = f.name
-    end
-    rows = @dataset.dataset_rows
-    result = []
-    rows.each do |row_rec|
-      row = {}
-      row_data = row_rec.dataset_data
-      row_data.each do |d|
-        field_name = fields[d.dataset_field_id]
-        row[field_name] = d.dataset_field_data
-      end
-      result << row
-    end
-    render json: result
   end
 
   # PATCH/PUT /datasets/1
