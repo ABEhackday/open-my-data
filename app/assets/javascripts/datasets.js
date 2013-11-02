@@ -34,6 +34,7 @@ $(function () {
                     url: '/datasets/' + id + '.json',
                     format: 'json',
                     success: function (data) {
+                        data.id = id;
                         more.html(template(data));
                         more.slideDown();
                         $(self).data('active', true);
