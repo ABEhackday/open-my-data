@@ -6,6 +6,14 @@ GIT
       railties (>= 3.0)
       sass (>= 3.2)
 
+GIT
+  remote: git://github.com/plataformatec/simple_form.git
+  revision: b5ae13112ccd6b2ec12a3c5190bc6264c993b42d
+  specs:
+    simple_form (3.0.0)
+      actionpack (>= 4.0.0, < 4.1)
+      activemodel (>= 4.0.0, < 4.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -96,9 +104,6 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
-    simple_form (3.0.0)
-      actionpack (>= 4.0.0, < 4.1)
-      activemodel (>= 4.0.0, < 4.1)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -134,10 +139,11 @@ DEPENDENCIES
   devise
   jbuilder (~> 1.2)
   jquery-rails
+  json
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc
-  simple_form
+  simple_form!
   sqlite3
   turbolinks
   uglifier (>= 1.3.0)
