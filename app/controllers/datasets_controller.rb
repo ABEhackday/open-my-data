@@ -1,5 +1,6 @@
 require 'import_helpers'
 require 'pry'
+require 'open-uri'
 
 class DatasetsController < ApplicationController
   before_action :set_dataset, only: [:show, :edit, :update, :destroy, :summary]
@@ -60,12 +61,20 @@ class DatasetsController < ApplicationController
 
     respond_to do |format|
       if @dataset.save
-        # Import plain-text data and transform it into Ruby data-strcuture
-        data = params[:dataset][:datafile]
-        if data.original_filename.end_with? '.csv'
-          data = read_csv(data.read)
-        elsif data.original_filename.end_with? '.json'
-          data = JSON.parse(data.read)
+        data = nil
+        if params[:dataset][:datafile]
+          # Import uploaded file and transform it into Ruby data-strcuture
+          data = params[:dataset][:datafile]
+          if data.original_filename.end_with? '.csv'
+            data = read_csv(data.read)
+          elsif data.original_filename.end_with? '.json'
+            data = JSON.parse(data.read)
+          end
+        else
+          # binding.pry
+          # http://localhost:3000/datasets/1.json
+          json_res = `curl #{params[:dataset][:source]}`
+          data = JSON.parse(json_res)
         end
 
         # Create dataset fields 

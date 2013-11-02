@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20131102070813) do
     t.datetime "updated_at"
   end
 
-  add_index "dataset_data", ["dataset_field_id"], name: "index_dataset_data_on_dataset_field_id"
-  add_index "dataset_data", ["dataset_row_id"], name: "index_dataset_data_on_dataset_row_id"
+  add_index "dataset_data", ["dataset_field_id"], name: "index_dataset_data_on_dataset_field_id", using: :btree
+  add_index "dataset_data", ["dataset_row_id"], name: "index_dataset_data_on_dataset_row_id", using: :btree
 
   create_table "dataset_fields", force: true do |t|
     t.integer  "datatype"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20131102070813) do
     t.string   "name"
   end
 
-  add_index "dataset_fields", ["dataset_id"], name: "index_dataset_fields_on_dataset_id"
+  add_index "dataset_fields", ["dataset_id"], name: "index_dataset_fields_on_dataset_id", using: :btree
 
   create_table "dataset_parameters", force: true do |t|
     t.string   "placeholder_name"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20131102070813) do
     t.datetime "updated_at"
   end
 
-  add_index "dataset_rows", ["dataset_id"], name: "index_dataset_rows_on_dataset_id"
+  add_index "dataset_rows", ["dataset_id"], name: "index_dataset_rows_on_dataset_id", using: :btree
 
   create_table "datasets", force: true do |t|
     t.string   "name"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20131102070813) do
     t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
