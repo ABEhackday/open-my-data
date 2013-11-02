@@ -46,3 +46,7 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Use twitter bootstrap
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails'
