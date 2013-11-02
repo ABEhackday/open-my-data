@@ -2,3 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body.datasets-controller {
+    background: #eee;
+
+    .dataset {
+        background: #fff;
+        padding: 25px 10px;
+        margin: 10px;
+        color: #333;
+        box-shadow: 0 2px rgba(200, 200, 200, 0.5);
+        cursor: pointer;
+        &:hover {
+            box-shadow: 0 2px rgba(100, 100, 100, 0.5);
+        }
+        h2 {
+            margin: 0;
+            font-weight: 400;
+        }
+        .desc {
+            color: #666;
+            font-size: 20px;
+        }
+        .owner {
+            font-size: 140%;
+            img {
+                width: 40px;
+            }
+        }
+        .time {
+            color: #666;
+            float: right;
+        }
+    }
+}
