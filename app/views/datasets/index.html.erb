@@ -1,16 +1,11 @@
-<% if !params[:s].blank? %>
-  <div class="container">
-    <h1>正在搜尋: <%= params[:s] %></h1>
-  </div>
-<% end %>
 <div class="container">
     <h2><strong>Latest open data</strong></h2>
     <% @datasets.each do |dataset| %>
       <div class="dataset" data-id="<%= dataset.id %>">
         <div class="row">
             <div class="col-md-8">
-              <h2><%= highlight dataset.name, params[:s] %> <small><%= dataset.created_at %></small></h2>
-                <div class="desc"><%= highlight dataset.description, params[:s] %></div>
+                <h2><%= dataset.name %> <small><%= dataset.created_at %></small></h2>
+                <div class="desc"><%= dataset.description %></div>
             </div>
             <div class="col-md-4">
                 <div class="owner"><%= image_tag dataset.owner.avatar %> <%= dataset.owner.name %></div>
@@ -27,8 +22,9 @@
         <tr>{{#each first_row}}<th>{{@key}}</th>{{/each}}</tr>
         <tr>{{#each first_row}}<td>{{this}}</td>{{/each}}</tr>
     </table>
-    <p>數量: {{ row_count }} 筆</p>
+    <p></p>
     <div class="row" style="margin: 0;">
-        <a class="pull-right btn btn-danger" href="/datasets/{{ id }}">More</a>
+        <div class="pull-left">資料總數量: {{ row_count }} 筆</div>
+        <a class="pull-right btn btn-danger" href="/datasets/{{ id }}">詳細資料</a>
     <div>
 </script>
