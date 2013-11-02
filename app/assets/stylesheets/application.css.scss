@@ -17,6 +17,9 @@
 .wrapper {
     margin:0;
     padding:0;
+    h4 {
+        color: #999;
+    }
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: "Open Sans";
@@ -27,8 +30,8 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.15538em;
     padding-bottom: 0.273em;
 }
-.bg-red {
-    background: #AF2B3B;
+.bg-blue {
+    background: #4682b4;
     color: white;
     h1 {
         color: white;
@@ -37,8 +40,15 @@ h1, h2, h3, h4, h5, h6 {
         color: white;
     }
 }
-.bg-yellow {
-    background: #F4DAA6;
+.bg-green {
+    background: #3cb371;
+    color: white;
+    h1 {
+        color: white;
+    }
+    h4 {
+        color: white;
+    }
 }
 .center {
     margin-left: auto;
