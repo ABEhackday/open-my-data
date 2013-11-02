@@ -9,6 +9,6 @@ class User < ActiveRecord::Base
   def avatar(size=nil)
     hash = Digest::MD5.hexdigest(self.email.downcase)
 
-    "http://www.gravatar.com/avatar/#{hash}" + size ? "?s=#{size}" : ''
+    "http://www.gravatar.com/avatar/#{hash}" + (size ? "?s=#{size}" : '')
   end
 end
