@@ -2,7 +2,7 @@ $(function () {
     if(!$('body').hasClass('datasets-controller'))
 	return;
 
-    if ($('body').hasClass('new-action') {
+    if ($('body').hasClass('new-action')) {
 	var wrappers = $('.wrapper');
 	$('button.next').click(function () {
 	    wrappers.eq(0).animate({
@@ -21,10 +21,8 @@ $(function () {
 	    }, 450);
 	});
     }else if($('body').hasClass('show')){
-	$('table.dataset-preview').dataTable({
-	    bJQueryUI: true
-	});
-    }else if($('body').hasClass('index'){
+	$('table.dataset-preview').dataTable({ bJQueryUI: true });
+    }else if($('body').hasClass('index')){
     
     }
 });
