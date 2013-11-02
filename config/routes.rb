@@ -1,4 +1,7 @@
 OpenMyData::Application.routes.draw do
+  devise_for :users
+  resources :users
+
   resources :dataset_data
 
   resources :dataset_rows
