@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20131102164516086) do
   create_table "dataset_data", force: true do |t|
     t.integer  "dataset_field_id"
     t.integer  "dataset_row_id"
-    t.string   "dataset_field_data"
+    t.text     "dataset_field_data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
