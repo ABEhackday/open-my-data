@@ -66,7 +66,7 @@ $(function () {
                 self = this;
             if (!active) {
                 $.ajax({
-                    url: '/datasets/' + id + '.json',
+                    url: '/datasets/' + id + '/summary.json',
                     format: 'json',
                     success: function (data) {
                         data.id = id;
