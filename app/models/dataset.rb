@@ -1,4 +1,5 @@
 class Dataset < ActiveRecord::Base
+  attr_accessible :name, :description, :license, :source, :source_type, :sync_frequency, :owner_id, :datafile
   has_many :dataset_fields, dependent: :destroy
   has_many :dataset_rows, dependent: :destroy
   alias :fields :dataset_fields
