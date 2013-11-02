@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20131102164516086) do
 
   create_table "datasets", force: true do |t|
     t.string   "name"
-    t.text     "description"
+    t.text     "description",    null: false
     t.string   "license"
     t.string   "source"
     t.integer  "source_type"
