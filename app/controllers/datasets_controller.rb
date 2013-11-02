@@ -76,7 +76,8 @@ class DatasetsController < ApplicationController
         else
           # binding.pry
           # http://localhost:3000/datasets/1.json
-          json_res = `curl #{params[:dataset][:source]}`
+          # json_res = `curl #{params[:dataset][:source]}`
+          json_res = open(params[:dataset][:source]).read
           data = JSON.parse(json_res)
         end
 
