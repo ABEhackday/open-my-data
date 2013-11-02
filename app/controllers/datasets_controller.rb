@@ -9,6 +9,9 @@ class DatasetsController < ApplicationController
   # GET /datasets.json
   def index
     @datasets = Dataset.page(params[:page])
+    if request.xhr?
+      render layout: nil
+    end
   end
 
   # GET /datasets/1
