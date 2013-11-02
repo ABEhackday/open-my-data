@@ -32,7 +32,9 @@ $(function(){
 	    $('#main').html(original_content);
 	}else{
 	    $('body').addClass('searching');
-	    $('#main').load('/datasets/?s='+keyword);
+	    $('#main').load('/datasets/?s='+keyword, function(){
+		showing_datasets_index();
+	    });
 	}
     });
 });
