@@ -14,8 +14,23 @@
         <span class="username"><%= @dataset.owner.name %></span>
     </div>      
 </div>
+<h2>欄位說明</h2>
+<table id="field_scheme" class="table table-striped">
+  <tr>
+    <th width="100">名稱</th>
+    <th>描述</th>
+    <th width="100">類型</th>
+  </tr>
+<% @dataset.fields.each do |field| %>
+  <tr class="<%= "hide" unless field.description %>">
+    <td><%= field.name %></td>
+    <td><%= best_in_place field, :description %></td>
+    <td>字串</td>
+  </tr>
+<% end %>
+</table>
+<a href="javascript:void()" onclick="$('#field_scheme tr.hide').removeClass('hide');$(this).remove()">顯示無資料的欄位</a>
 <hr>
-
 <ul class="nav nav-tabs" style="margin-bottom: 5px;">
   <li class="active"><a href="#table" data-toggle="tab">表格模式</a></li>
   <li><a href="#cards" data-toggle="tab">卡片模式</a></li>
@@ -43,6 +58,9 @@
     </table>
   </div>
   <div class="tab-pane" id="cards">
+    <div class="panel-group" id="dataset-sample-cards">
+      <%= render partial: 'card', collection: @dataset.rows.first(4) %>
+    </div>
   </div>
 </div>
 

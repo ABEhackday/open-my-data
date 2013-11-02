@@ -62,3 +62,5 @@ gem "jquery-ui-rails"
 gem 'mysql2'
 gem 'letsrate'
 gem 'protected_attributes'
+gem 'best_in_place', github: 'bernat/best_in_place'
+gem 'rails_autolink'

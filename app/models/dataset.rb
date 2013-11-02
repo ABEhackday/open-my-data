@@ -25,4 +25,10 @@ class Dataset < ActiveRecord::Base
   default_scope { order('created_at DESC') }
 
   validates_presence_of :owner, :name
+
+  def main_field
+    @main_field ||= (fields.detect do |f|
+      f.name.downcase[/name|title/]
+    end) || fields.first
+  end
 end

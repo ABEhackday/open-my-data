@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20131102164516086) do
     t.datetime "updated_at"
     t.integer  "dataset_id"
     t.string   "name"
+    t.text     "description"
   end
 
   add_index "dataset_fields", ["dataset_id"], name: "index_dataset_fields_on_dataset_id", using: :btree

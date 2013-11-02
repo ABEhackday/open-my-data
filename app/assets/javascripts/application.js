@@ -15,6 +15,8 @@
 //= require twitter/bootstrap
 //= require dataTables/jquery.dataTables
 //= require jquery.ba-bbq.js
+//= require best_in_place
+//= require jquery.embedly.js
 //= require_tree .
 
 // type as you search
@@ -46,3 +48,8 @@ function dirtyIME(){
 	$('#top-search-box').trigger('keydown');
     }
 }
+
+$(document).ready(function() {
+    /* Activating Best In Place */
+    jQuery(".best_in_place").best_in_place();
+});
