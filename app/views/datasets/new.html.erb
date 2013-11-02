@@ -1,22 +1,39 @@
-<h1>New dataset</h1>
-
 <%= simple_form_for @dataset do |f| %>
-  <table>
-    <tr>
-      <td>
-        上傳檔案 <%= f.file_field :datafile %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        網址 <%= f.text_field :source %>
-      </td>
-    </tr>
-  </table>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <div class="form-actions">
-    <input type="submit" value="建立">
+<div class="fix-wrapper">
+  <div class="wrapper bg-green">
+      <section class="full">
+          <div class="container">
+              <h1>請給我資訊!</h1>
+              <div class="row">
+                  <div class="col-md-4 col-md-offset-4">
+                      <p><%= f.text_field :name, autofocus: 'true', placeholder: '資料標題', class: "form-control" %></p>
+                      <p><%= f.text_area :description, placeholder: '資料說明', class: "form-control" %></p>
+                  </div>
+              </div>
+              <button type="button" class="next btn btn-default btn-lg">下一步 &gt;&gt;</button>
+          </div>
+      </section>
   </div>
+  <div class="wrapper bg-blue" style="left: 100%;">
+      <section class="full">
+          <div class="container">
+              <h1>選一種你喜歡的方式吧 :)</h1>
+              <div class="row">
+                  <div class="col-md-4 col-md-offset-2">
+                      <h4>上傳 <small>支援格式: .json, .csv</small></h4>
+                      <p><%= f.file_field :datafile %></p>
+                  </div>
+                  <div class="col-md-4">
+                      <h4>匯入 <small>支援格式: .json, .csv</small></h4>
+                      <p><%= f.text_field :source , placeholder: "請輸入網址" %></p>
+                  </div>
+              </div>
+              <div class="row actions">
+                  <button type="button" class="prev btn btn-default btn-lg">&lt;&lt; 上一步</button>
+                  <button class="btn btn-lg btn-success">完成</button>
+              </div>
+          </div>
+      </section>
+  </div>
+</div>
 <% end %>
-<%= link_to 'Back', datasets_path %>
