@@ -6,6 +6,7 @@
     <div class="col-md-7">
         <h1><%= @dataset.name %></h1>
         <h4><%= @dataset.description %></h4>
+        <h4><%= rating_for @dataset, :dataset %> </h4>
         <h4>API <input type="text" onfocus="this.select()" onmouseover="this.focus();" class="form-control" value="<%= dataset_url %>.json"></h4>
     </div>
     <div class="col-md-4">

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  letsrate_rater
 
   def avatar(size=nil)
     hash = Digest::MD5.hexdigest(self.email.downcase)
