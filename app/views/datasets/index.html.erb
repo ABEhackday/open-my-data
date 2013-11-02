@@ -1,10 +1,15 @@
+<% if !params[:s].blank? %>
+  <div class="container">
+    <h1>正在搜尋: <%= params[:s] %></h1>
+  </div>
+<% end %>
 <div class="container">
     <% @datasets.each do |dataset| %>
       <div class="dataset" data-id="<%= dataset.id %>">
         <div class="row">
             <div class="col-md-8">
-                <h2><%= dataset.name %> <small><%= dataset.created_at %></small></h2>
-                <div class="desc"><%= dataset.description %></div>
+              <h2><%= highlight dataset.name, params[:s] %> <small><%= dataset.created_at %></small></h2>
+                <div class="desc"><%= highlight dataset.description, params[:s] %></div>
             </div>
             <div class="col-md-4">
                 <div class="owner"><%= image_tag dataset.owner.avatar %> <%= dataset.owner.name %></div>

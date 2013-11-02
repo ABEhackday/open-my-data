@@ -16,3 +16,31 @@
 //= require dataTables/jquery.dataTables
 //= require jquery.ba-bbq.js
 //= require_tree .
+
+// type as you search
+
+var original_content = false;
+
+$(function(){
+    $('#top-search-box').keyup(function(event){
+	if(!original_content)
+	    original_content = $('#main').html();
+
+	keyword = $('#top-search-box').val();
+	if(keyword == ''){
+	    $('body').removeClass('searching');
+	    $('#main').html(original_content);
+	}else{
+	    $('body').addClass('searching');
+	    $('#main').load('/datasets/?s='+keyword);
+	}
+    });
+});
+
+
+function dirtyIME(){ 
+    if(old_search_term != $('#top-search-box').val()){
+	old_search_term = $('#top-search-box').val();
+	$('#top-search-box').trigger('keydown');
+    }
+}

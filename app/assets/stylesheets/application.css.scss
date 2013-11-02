@@ -17,6 +17,8 @@
 @import "twitter/bootstrap";
 
 #main { padding: 60px 0; }
+body.searching #main { padding: 60px 0 !important; }
+
 .wrapper {
     margin:0;
     padding:0;
