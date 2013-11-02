@@ -14,6 +14,13 @@ GIT
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
 
+GIT
+  remote: git://github.com/rweng/jquery-datatables-rails.git
+  revision: 536c1a1dcc6008406fb022cc1036d4c8c7a6d134
+  specs:
+    jquery-datatables-rails (1.11.2)
+      jquery-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -141,6 +148,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 1.2)
+  jquery-datatables-rails!
   jquery-rails
   json
   kaminari

@@ -55,3 +55,4 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 
 gem 'json'
 gem 'kaminari'
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
