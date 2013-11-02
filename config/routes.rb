@@ -1,4 +1,5 @@
 OpenMyData::Application.routes.draw do
+  match '/rate' => 'rater#create', :as => 'rate', :via => [:post, :get]
   devise_for :users, :controllers => { :registrations => "registrations" }
   resources :users
 
