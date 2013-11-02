@@ -91,11 +91,13 @@ class DatasetsController < ApplicationController
         data.each do |e|
           row = @dataset.dataset_rows.create
           row.save
-          fields_rec.each do |rec|
-            col = row.dataset_data.create
-            col.dataset_field_id = rec.id
-            col.dataset_field_data = e[rec.name]
-            col.save
+          ActiveRecord::Base.transaction do
+            fields_rec.each do |rec|
+              col = row.dataset_data.create
+              col.dataset_field_id = rec.id
+              col.dataset_field_data = e[rec.name]
+              col.save
+            end
           end
         end
         format.html { redirect_to @dataset, notice: 'Dataset was successfully created.' }
