@@ -1,3 +1,6 @@
+require 'import_helpers'
+require 'pry'
+
 class DatasetsController < ApplicationController
   before_action :set_dataset, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :update]
@@ -29,6 +32,35 @@ class DatasetsController < ApplicationController
 
     respond_to do |format|
       if @dataset.save
+        # Import plain-text data and transform it into Ruby data-strcuture
+        data = params[:dataset][:datafile]
+        if data.original_filename.end_with? '.csv'
+          data = read_csv(data.read)
+        elsif data.original_filename.end_with? '.json'
+          data = JSON.parse(data.read)
+        end
+
+        # Create dataset fields 
+        fields = []
+        fields_rec = []
+        data[0].each_key { |k| fields << k }
+        fields.each do |field_name|
+          field = @dataset.dataset_fields.create(:name=>field_name, :datatype=>0)
+          field.save
+          fields_rec << field
+        end
+
+        # Create dataset data
+        data.each do |e|
+          row = @dataset.dataset_rows.create
+          row.save
+          fields_rec.each do |rec|
+            col = row.dataset_data.create
+            col.dataset_field_id = rec.id
+            col.dataset_field_data = e[rec.name]
+            col.save
+          end
+        end
         format.html { redirect_to @dataset, notice: 'Dataset was successfully created.' }
         format.json { render action: 'show', status: :created, location: @dataset }
       else
@@ -36,6 +68,7 @@ class DatasetsController < ApplicationController
         format.json { render json: @dataset.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /datasets/1
