@@ -16,24 +16,35 @@
 </div>
 <hr>
 
-<table style="width: 100%" class="dataset-preview">
-  <thead>
-    <tr>
-      <% @dataset.fields.each do |f| %>
-        <th><%= f.name %></th>
+<ul class="nav nav-tabs" style="margin-bottom: 5px;">
+  <li class="active"><a href="#table" data-toggle="tab">表格模式</a></li>
+  <li><a href="#cards" data-toggle="tab">卡片模式</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="table">
+    <table style="width: 100%" class="dataset-preview">
+      <thead>
+        <tr>
+          <% @dataset.fields.each do |f| %>
+            <th><%= f.name %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+      <% @dataset.rows.each do |r| %>
+        <tr>
+          <% r.data.joins(:dataset_field).order('dataset_fields.id').each do |datum| %>
+            <td><%= datum.dataset_field_data %></td>
+          <% end %>
+        </tr>
       <% end %>
-    </tr>
-  </thead>
-  <tbody>
-  <% @dataset.rows.each do |r| %>
-    <tr>
-      <% r.data.joins(:dataset_field).order('dataset_fields.id').each do |datum| %>
-        <td><%= datum.dataset_field_data %></td>
-      <% end %>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane" id="cards">
+  </div>
+</div>
 
   <div id="disqus_thread"></div>
   <script type="text/javascript">
