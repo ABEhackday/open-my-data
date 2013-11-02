@@ -89,6 +89,7 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.2)
+    mysql2 (0.3.13)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
@@ -162,6 +163,7 @@ DEPENDENCIES
   jquery-ui-rails
   json
   kaminari
+  mysql2
   pry
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
