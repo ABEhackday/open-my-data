@@ -3,6 +3,7 @@ IndexAutoLoader = {
     loading: false,
     no_data: false,
     page: 1,
+    href: false,
     loading_indecator: $('<div class="loading-indicator">Loading...</div>').appendTo($('body')).hide(),
     init: function(){
 	$(window).scroll(function(e){
@@ -11,7 +12,7 @@ IndexAutoLoader = {
 	    IndexAutoLoader.loading = true;
 	    IndexAutoLoader.loading_indecator.show();
 	    IndexAutoLoader.page ++;
-	    url = $.param.querystring(location.href, {page: IndexAutoLoader.page});
+	    url = $.param.querystring(IndexAutoLoader.href || location.href, {page: IndexAutoLoader.page});
 	    $.get(url, function(data){
 		page_items = $('.dataset', data);
 		if(page_items.length == 0){
@@ -31,6 +32,34 @@ IndexAutoLoader = {
 	    return $(window).scrollTop() > main_container_bottom - $(window).height() - 100;
 	}
 };
+
+
+// we will use this in search
+function showing_datasets_index(){
+    IndexAutoLoader.init();
+    var template = Handlebars.compile($("#t-datasets-more").html());
+    $('.dataset').click(function () {
+	var id = $(this).attr('data-id'),
+	    more = $(this).find('.more'),
+	    active = $(this).data('active'),
+	    self = this;
+	if (!active) {
+	    $.ajax({
+		url: '/datasets/' + id + '/summary.json',
+		format: 'json',
+		success: function (data) {
+		    data.id = id;
+		    more.html(template(data));
+		    more.slideDown();
+		    $(self).data('active', true);
+		}
+	    });
+	} else {
+	    more.slideUp();
+	    $(this).data('active', false);
+	}
+    });
+}
 
 $(function () {
     if(!$('body').hasClass('datasets-controller'))
@@ -57,28 +86,6 @@ $(function () {
     } else if ($('body').hasClass('show-action')) {
 	    $('table.dataset-preview').dataTable({ bJQueryUI: true, bAutoWidth: true });
     } else if ($('body').hasClass('index-action')) {
-        IndexAutoLoader.init();
-        var template = Handlebars.compile($("#t-datasets-more").html());
-        $('.dataset').click(function () {
-            var id = $(this).attr('data-id'),
-                more = $(this).find('.more'),
-                active = $(this).data('active'),
-                self = this;
-            if (!active) {
-                $.ajax({
-                    url: '/datasets/' + id + '/summary.json',
-                    format: 'json',
-                    success: function (data) {
-                        data.id = id;
-                        more.html(template(data));
-                        more.slideDown();
-                        $(self).data('active', true);
-                    }
-                });
-            } else {
-                more.slideUp();
-                $(this).data('active', false);
-            }
-        });
+	showing_datasets_index();
     }
 });

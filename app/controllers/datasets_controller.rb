@@ -10,6 +10,9 @@ class DatasetsController < ApplicationController
   # GET /datasets.json
   def index
     @datasets = Dataset.page(params[:page])
+    unless params[:s].blank?
+      @datasets = @datasets.where("name like ? or description like ?", "%#{params[:s]}%", "%#{params[:s]}%")
+    end
     render layout: nil if request.xhr?
   end
 
