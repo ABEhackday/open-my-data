@@ -47,18 +47,21 @@ function showing_datasets_index(){
 	    active = $(this).data('active'),
 	    self = this;
 	if (!active) {
+	    $('.indicator', $(this)).hide();
 	    $.ajax({
 		url: '/datasets/' + id + '/summary.json',
 		format: 'json',
 		success: function (data) {
 		    data.id = id;
 		    more.html(template(data));
+		    $('a', more).click(function(e){ e.stopPropagation(); });
 		    more.slideDown();
 		    $(self).data('active', true);
 		}
 	    });
 	} else {
 	    more.slideUp();
+	    $('.indicator', $(this)).show();
 	    $(this).data('active', false);
 	}
     });
