@@ -55,7 +55,6 @@ function showing_datasets_index(){
 		    more.html(template(data));
 		    more.slideDown();
 		    $(self).data('active', true);
-            $('#dropdown-icon').hide();
 		}
 	    });
 	} else {
@@ -93,16 +92,4 @@ $(function () {
     } else if ($('body').hasClass('index-action')) {
 	showing_datasets_index();
     }
-
-    // Show indication icon on hover
-    $('.dataset').hover(
-        function() {
-            if($(this).data('active')!=true) {
-                $('#dropdown-icon').insertAfter($(this)).fadeIn('fast');                
-            }
-        },
-        function() {
-            $('#dropdown-icon').hide();
-        }
-    );
 });
