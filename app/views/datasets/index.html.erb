@@ -25,10 +25,12 @@
 <script id="t-datasets-more" type="x-handlebars-template">
     <hr>
     <h3>Sample data</h3>
-    <table class="table">
-        <tr>{{#each first_row}}<th>{{@key}}</th>{{/each}}</tr>
-        <tr>{{#each first_row}}<td>{{this}}</td>{{/each}}</tr>
-    </table>
+    <div class="table-wrapper">
+      <table class="table">
+          <tr>{{#each first_row}}<th>{{@key}}</th>{{/each}}</tr>
+          <tr>{{#each first_row}}<td>{{this}}</td>{{/each}}</tr>
+      </table>
+    </div>
     <p></p>
     <div class="row" style="margin: 0;">
         <div class="pull-left">資料總數量: {{ row_count }} 筆</div>

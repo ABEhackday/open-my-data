@@ -60,6 +60,10 @@ body.datasets-controller.index-action, body.searching {
             color: #666;
             float: right;
         }
+	.more .table-wrapper{
+	    max-height: 150px;
+	    overflow: hidden;
+	}
     }
 }
 
