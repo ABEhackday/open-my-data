@@ -7,6 +7,14 @@ GIT
       sass (>= 3.2)
 
 GIT
+  remote: git://github.com/bernat/best_in_place.git
+  revision: df178520bf9ba405baee9528d5dbb630d6ff760c
+  specs:
+    best_in_place (2.1.0)
+      jquery-rails
+      rails (>= 3.1)
+
+GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: b5ae13112ccd6b2ec12a3c5190bc6264c993b42d
   specs:
@@ -88,6 +96,7 @@ GEM
       activesupport (>= 3.0.0)
     kgio (2.8.1)
     letsrate (1.0.8)
+    libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -120,6 +129,8 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.0)
       sprockets-rails (~> 2.0.0)
+    rails_autolink (1.1.5)
+      rails (> 3.1)
     railties (4.0.0)
       actionpack (= 4.0.0)
       activesupport (= 4.0.0)
@@ -129,6 +140,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    ref (1.0.5)
     sass (3.2.12)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -150,6 +162,9 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.8)
+    therubyracer (0.12.0)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.18.1)
     thread_safe (0.1.3)
       atomic
@@ -181,6 +196,7 @@ PLATFORMS
 
 DEPENDENCIES
   anjlab-bootstrap-rails!
+  best_in_place!
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 1.2)
@@ -194,10 +210,12 @@ DEPENDENCIES
   protected_attributes
   pry
   rails (= 4.0.0)
+  rails_autolink
   sass-rails (~> 4.0.0)
   sdoc
   simple_form!
   sqlite3
+  therubyracer
   turbolinks
   uglifier (>= 1.3.0)
   unicorn-rails

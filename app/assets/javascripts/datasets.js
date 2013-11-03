@@ -88,6 +88,7 @@ $(function () {
     	    }, 450);
     	});
     } else if ($('body').hasClass('show-action')) {
+	    $('#dataset-sample-cards a').embedly({key: '5533fb09b9b44cc78c0cb0656a737887'});
 	    $('table.dataset-preview').dataTable({ bJQueryUI: true, bAutoWidth: true });
     } else if ($('body').hasClass('index-action')) {
 	showing_datasets_index();

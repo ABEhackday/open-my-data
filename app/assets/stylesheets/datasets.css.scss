@@ -64,6 +64,7 @@ body.datasets-controller.index-action, body.searching {
 }
 
 body.datasets-controller.show-action {
+    h2{ border-bottom: 1px solid #eee; }
     span.username {
         font-size: 35px;
         line-height: 80px;

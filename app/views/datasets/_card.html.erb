@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" data-parent="#accordion" href="#row<%= card.id %>">
+        <%= card.main_field_data.dataset_field_data %>
+      </a>
+    </h4>
+  </div>
+  <div id="row<%= card.id %>" class="panel-collapse collapse">
+    <div class="panel-body">
+      <ul>
+          <% card.data.joins(:dataset_field).order('dataset_fields.id').each do |datum| %>
+            <li><b><%= datum.dataset_field.name %></b>: <%= auto_link datum.dataset_field_data %></li>
+          <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
