@@ -26,12 +26,12 @@ var original_content = false;
 $(function(){
     $('#top-search-box').keyup(function(event){
 	if(!original_content)
-	    original_content = $('#main').html();
+	    original_content = $('#main').children().detach();
 
 	keyword = $('#top-search-box').val();
 	if(keyword == ''){
 	    $('body').removeClass('searching');
-	    $('#main').html(original_content);
+	    $('#main').empty().append(original_content);
 	}else{
 	    $('body').addClass('searching');
 	    $('#main').load('/datasets/?s='+keyword, function(){
