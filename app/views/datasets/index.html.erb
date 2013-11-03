@@ -8,9 +8,8 @@
       <div class="dataset" data-id="<%= dataset.id %>">
         <div class="row">
             <div class="col-md-8">
-                <%= dataset.average(:dataset).try(:avg) || 3 %>
                 <h2>
-                    <%= highlight dataset.name, params[:s] %> <small><%= dataset.created_at %></small>
+                    <span style="color: crimson; font-size: 25px; "><%= dataset.average(:dataset).try(:avg) || 3 %></span> <%= highlight dataset.name, params[:s] %> <small><%= dataset.created_at %></small>
                 </h2>
                 <div class="desc"><%= highlight dataset.description.to_s, params[:s] %></div>
             </div>
