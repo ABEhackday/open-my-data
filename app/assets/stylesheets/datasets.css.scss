@@ -42,6 +42,7 @@ body.datasets-controller.index-action, body.searching {
 	position: relative;
 	.indicator{ display: none }
         &:hover {
+            box-shadow: 0 2px rgba(100, 100, 100, 0.5);
 	    .indicator{
 		display: block;
 		position: absolute;
