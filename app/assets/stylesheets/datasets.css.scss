@@ -74,6 +74,9 @@ body.datasets-controller.index-action, body.searching {
 	.more .table-wrapper{
 	    max-height: 150px;
 	    overflow: hidden;
+	    .table th{
+		white-space: nowrap;
+	    }
 	}
     }
 }
