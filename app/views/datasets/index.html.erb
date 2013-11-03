@@ -7,14 +7,20 @@
     <% @datasets.each do |dataset| %>
       <div class="dataset" data-id="<%= dataset.id %>">
         <div class="row">
+            <div class="col-md-1">
+              <h2>
+                <% color = score_color(dataset.average(:dataset).try(:avg)) %>
+                <span style="color: <%= color %>;padding-left:20px;"><%= dataset.average(:dataset).try(:avg) || 3.0 %></span> 
+              </h2>
+            </div>
             <div class="col-md-8">
                 <h2>
-                    <span style="color: crimson; font-size: 25px; "><%= dataset.average(:dataset).try(:avg) || 3 %></span> <%= highlight dataset.name, params[:s] %> <small><%= dataset.created_at %></small>
+                  <%= highlight dataset.name, params[:s] %> <small style="white-space:nowrap;"><%= dataset.created_at %></small>
                 </h2>
                 <div class="desc"><%= highlight dataset.description.to_s, params[:s] %></div>
             </div>
-            <div class="col-md-4">
-                <div class="owner"><%= image_tag dataset.owner.avatar %> <%= dataset.owner.name %></div>
+            <div class="col-md-3">
+              <div class="owner"><%= image_tag dataset.owner.avatar %>&nbsp;&nbsp;<%= dataset.owner.name %></div>
             </div>
         </div>
         <div class="indicator">▼</div>

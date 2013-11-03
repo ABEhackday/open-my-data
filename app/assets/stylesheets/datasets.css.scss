@@ -40,17 +40,19 @@ body.datasets-controller.index-action, body.searching {
         box-shadow: 0 2px rgba(200, 200, 200, 0.5);
         cursor: pointer;
 	position: relative;
-	.indicator{ display: none }
-        &:hover {
-            box-shadow: 0 2px rgba(100, 100, 100, 0.5);
-	    .indicator{
+	.indicator{
 		display: block;
 		position: absolute;
 		width: 100%;
 		bottom: 5px;
-		color: #aaa;
+		color: #ddd;
 		text-align: center;
 		font-size: 6px;
+	}
+        &:hover {
+            box-shadow: 0 2px rgba(100, 100, 100, 0.5);
+	    .indicator{
+		color: #777;
 	    }
         }
         h2 {
